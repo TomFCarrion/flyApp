@@ -7,7 +7,9 @@ import moment from 'moment';
 
 import {
   SET_FROM,
+  SET_FROM_ID,
   SET_TO,
+  SET_TO_ID,
   SET_START_DATE,
   SET_END_DATE,
 } from '../../actions/actionTypes';
@@ -24,8 +26,34 @@ const Search = () => {
 
   const dispatch = useDispatch();
 
-  const handleInputChange = (value, action) => {
-    dispatch({ type: action, data: value }), [dispatch];
+  const getPlaceCode = (value, action) => {
+    const options = {
+      method: 'GET',
+      url:
+        'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/',
+      params: { query: value },
+      headers: {
+        'x-rapidapi-key': '08eb576b39mshaa3eb3f0249657ep1b15f7jsn598ba72db2e4',
+        'x-rapidapi-host':
+          'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+      },
+    };
+
+    axios
+      .request(options)
+      .then((res) => {
+        dispatch({ type: action, data: res.data.Places[0].PlaceId }), [dispatch];
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+  };
+
+  const handleBlur = (e, action) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      getPlaceCode(e.target.value, action);
+    }
   };
 
   const handleInputChange = (value, action) => {
@@ -44,12 +72,14 @@ const Search = () => {
         type="text"
         value={from}
         onChange={(e) => handleInputChange(e.target.value, SET_FROM)}
+        onBlur={(e) => handleBlur(e, SET_FROM_ID)}
         name="from"
       />
       <input
         type="text"
         value={to}
         onChange={(e) => handleInputChange(e.target.value, SET_TO)}
+        onBlur={(e) => handleBlur(e, SET_TO_ID)}
         name="to"
       />
       <DayPickerInput
