@@ -1,0 +1,30 @@
+
+.card {
+    box-sizing: border-box;
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    height: 300px;
+
+}
+
+.upper-item{
+    &.airline{
+        font-family: 'Domine', serif;
+        color: #F3B305;
+
+    }
+}
+.upper,
+.middle,
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    height: 33%;
+}
+    
+
+
+
+
