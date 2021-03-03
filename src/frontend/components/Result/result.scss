@@ -6,10 +6,11 @@
     margin: 1rem;
     border-radius: 10px;
     height: 300px;
-
+    font-family: 'Open Sans', sans-serif;
 }
 
 .upper-item{
+    text-align: center;
     &.airline{
         font-family: 'Domine', serif;
         color: #F3B305;
@@ -23,6 +24,46 @@
     justify-content: space-between;
     height: 33%;
 }
+
+.middle {
+    border-bottom: 2px dashed gray;
+    text-align: center;
+}
+
+.bottom{
+    padding-top: 1rem;
+}
+
+
+.price {
+    font-weight: bolder;
+    font-size: 2rem;
+    color: #FF715D;
+}
+
+.price-text {
+    color:gray;
+    float: left;
+}
+
+.dot {
+    transform: translateX(-30px) translateY(-15px);
+    height: 25px;
+    width: 25px;
+    background-color: #98CADB;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    &.right{
+        right: -100.5%; 
+
+
+    }
+  }
+  
+  
+
+
     
 
 

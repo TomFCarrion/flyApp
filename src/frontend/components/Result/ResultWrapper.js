@@ -86,7 +86,7 @@ const ResultWrapper = () => {
             from ={ from }
             to = { to }
             airlineName = { ticket.name }
-            flightNumber = { 'TEST' }
+            flightNumber = { ticket.id }
             ticketPrice = { ticket.price }    
             date = { startDate }
           />)
