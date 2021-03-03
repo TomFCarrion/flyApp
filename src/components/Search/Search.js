@@ -5,6 +5,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+import dateLogo from '../../assets/date.svg';
+import takeoff from '../../assets/takeOff.svg';
+import landing from '../../assets/landing.svg';
+
 import {
   SET_FROM,
   SET_FROM_ID,
@@ -42,12 +46,12 @@ const Search = () => {
     axios
       .request(options)
       .then((res) => {
-        dispatch({ type: action, data: res.data.Places[0].PlaceId }), [dispatch];
+        dispatch({ type: action, data: res.data.Places[0].PlaceId }),
+          [dispatch];
       })
       .catch(function (error) {
         console.error(error);
       });
-
   };
 
   const handleBlur = (e, action) => {
@@ -68,47 +72,71 @@ const Search = () => {
 
   return (
     <div className="wrapper">
-      <input
-        type="text"
-        value={from}
-        onChange={(e) => handleInputChange(e.target.value, SET_FROM)}
-        onBlur={(e) => handleBlur(e, SET_FROM_ID)}
-        name="from"
-      />
-      <input
-        type="text"
-        value={to}
-        onChange={(e) => handleInputChange(e.target.value, SET_TO)}
-        onBlur={(e) => handleBlur(e, SET_TO_ID)}
-        name="to"
-      />
-      <DayPickerInput
-        value={startDate}
-        placeholder="From"
-        formatDate={formatDate}
-        parseDate={parseDate}
-        dayPickerProps={{
-          modifiers,
-          numberOfMonths: 2,
-        }}
-        onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
-      />{' '}
-      —{' '}
-      <span className="InputFromTo-to">
+      <div>
+        <span className="icons">
+          <img  className="icon" src={takeoff} width="100" height="50" />
+          <img  className="icon"  src={landing} width="100" height="50" />
+        </span>
+
+        <span className="inputs">
+          
+          <input
+            placeholder="From"
+            type="text"
+            value={from}
+            onChange={(e) => handleInputChange(e.target.value, SET_FROM)}
+            onBlur={(e) => handleBlur(e, SET_FROM_ID)}
+            name="from"
+          />
+          <input
+            placeholder="to"
+            type="text"
+            value={to}
+            onChange={(e) => handleInputChange(e.target.value, SET_TO)}
+            onBlur={(e) => handleBlur(e, SET_TO_ID)}
+            name="to"
+          />
+        </span>
+      </div>
+
+      <div className="Date">
         <DayPickerInput
-          value={endDate}
-          placeholder="To"
+          value={startDate}
+          placeholder="Depart"
           formatDate={formatDate}
           parseDate={parseDate}
           dayPickerProps={{
             modifiers,
-            numberOfMonths: 2,
+            numberOfMonths: 1,
           }}
-          onDayChange={(e) => handleCalendarChange(e, SET_END_DATE)}
+          onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
         />
-      </span>
-      <Link to="/result">
-        <button type="button">Click Me!</button>
+        <span className="InputFromTo-to">
+          <DayPickerInput
+            value={endDate}
+            placeholder="Return"
+            formatDate={formatDate}
+            parseDate={parseDate}
+            dayPickerProps={{
+              modifiers,
+              numberOfMonths: 1,
+              preventOverflow: {
+                enabled: true,
+              },
+            }}
+            popperModifiers={{
+              preventOverflow: {
+                enabled: true,
+              },
+            }}
+            onDayChange={(e) => handleCalendarChange(e, SET_END_DATE)}
+          />
+        </span>
+      </div>
+      
+
+      <Link  to="/result">
+        <span className="button-Wrapper"> <button  className="button" type="button">Get My Flight!</button></span>
       </Link>
     </div>
   );

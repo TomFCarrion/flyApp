@@ -2,8 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .title {
-    padding: 2rem;
     font-family: 'Open Sans', sans-serif;
     color:#FFFFFF;
     text-align: center;
+    height: 25%;
 }
+
+.image {
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .searchWrapper {
+        display: flex;
+        flex-flow: wrap;
+    }
+
+    .image {
+        width: 20%;
+        padding-top: 4rem;
+    }
+  }
+

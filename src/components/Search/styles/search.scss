@@ -1,7 +1,63 @@
-.wrapper{
+.wrapper {
+    width: 50%;
     background-color: white;
-    height: 50vw;
+    height: 75%;
     border: 2px;
-    border-radius: 25px;
+    border-radius: 25px 25px;
+    margin: auto;
     
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2rem;
+}
+
+.icon {
+   // width: 50%;
+}
+
+.inputs {
+
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+
+}
+
+
+.date {
+  display: flex;
+  justify-content: space-around;
+
+}
+input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.button{
+  width: 50%;
+  color: white;
+  background-color: #F6BABB;
+  border: 0;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 4px;
+
+}
+
+.button-Wrapper{
+  display: flex;
+  margin: 2rem 0;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    width: 100%;
+    border-radius: 25px 25px 0px 0;
+  }
 }
