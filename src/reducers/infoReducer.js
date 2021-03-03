@@ -1,5 +1,5 @@
 import { SET_FROM, SET_TO, SET_START_DATE, SET_END_DATE, SET_FROM_ID, SET_TO_ID } from '../actions/actionTypes';
-const infoReducer = (state = { from: 'test', to: '' }, action) => {
+const infoReducer = (state = { from: '', to: '' }, action) => {
   switch (action.type) {
     case SET_FROM:
       return {

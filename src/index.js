@@ -5,6 +5,7 @@ import  App  from './routes/App';
 import thunk from 'redux-thunk';
 import { rootReducer } from './reducers/index';
 import { createStore, applyMiddleware } from 'redux';
+import './reset.scss'
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
