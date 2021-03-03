@@ -6,26 +6,33 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack serve --open --mode development"
+    "start": "webpack serve --open --mode development",
+    "start:dev": "nodemon src/server/index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/register": "^7.13.8",
     "@date-io/date-fns": "^1.3.13",
     "axios": "^0.21.1",
     "babel-preset-es2015": "^6.24.1",
     "date-fns": "^2.0.0-beta.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "moment": "^2.29.1",
+    "nodemon": "^2.0.7",
     "react": "^17.0.1",
     "react-day-picker": "^7.4.8",
     "react-dom": "^17.0.1",
+    "react-hot-loader": "^4.13.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "stylus": "^0.54.8",
-    "stylus-loader": "^5.0.0"
+    "stylus-loader": "^5.0.0",
+    "webpack": "^5.24.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -46,8 +53,9 @@
     "redux-devtools": "^3.7.0",
     "sass-loader": "^11.0.1",
     "svg-url-loader": "^7.1.1",
-    "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-middleware": "^4.1.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-hot-middleware": "^2.25.0"
   }
 }
