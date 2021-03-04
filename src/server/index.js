@@ -1,11 +1,12 @@
-require('ignore-styles')
-require('@babel/register')({
-    presets: ['@babel/preset-env', '@babel/preset-react'],
-    });
+require('ignore-styles');
 
-require('./server');
+require('@babel/register')({
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+});
 
 require('asset-require-hook')({
-    extensions: ['jpg', 'png'],
-    name: '../frontend/assets/[hash].[ext]',
-  });
+  extensions: ['jpg', 'png', 'svg'],
+  name: '/assets/[name].[ext]',
+});
+
+require('./server');

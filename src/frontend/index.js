@@ -14,7 +14,7 @@ import './reset.scss';
 const history = createBrowserHistory();
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={store}>
     <Router history={history}>
       <App />

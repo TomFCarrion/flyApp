@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { __esModule } = require('@babel/register');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 require('dotenv').config();
 
@@ -18,13 +19,17 @@ module.exports = {
   entry,
   mode: process.env.ENV,
   output: {
-    path: path.resolve(__dirname, './src/server/public'),
+    path: path.resolve(__dirname, 'src/server/public'),
     filename: 'assets/app.js',
-    publicPath: '/'
+    publicPath: '/',
 
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   module: {
     rules: [
@@ -32,24 +37,20 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-        },
+          loader: "babel-loader",
+        }
       },
       {
         test: /\.(s*)css$/,
         use: [
-          { loader: MiniCssExtractPlugin.loader },
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           'css-loader',
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
 
-      },      
+      },
       {
         test: /\.(png|svg|jpg)$/,
         use: [
@@ -61,19 +62,22 @@ module.exports = {
           }
         ]
       }
-      
-    ],
-    
+    ]
   },
   devServer: {
     historyApiFallback: true,
   },
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() :
-    () => { },
-    new MiniCssExtractPlugin({
-        filename: 'assets/app.css',
+      () => { },
+    isDev ? () => {} :
+       new CompressionWebpackPlugin({
+        test: /\.js$|\.css$/,
+        filename: '[path].gz',
       }),
-    
+    new MiniCssExtractPlugin({
+      filename: 'assets/app.css',
+    }),
+
   ],
 };
