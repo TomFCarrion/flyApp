@@ -3,13 +3,25 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { __esModule } = require('@babel/register');
 
+require('dotenv').config();
+
+
+const isDev = (process.env.ENV === 'development');
+const entry = ['./src/frontend/index.js'];
+
+if (isDev) {
+  entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true');
+}
+
+
 module.exports = {
-  entry: ['./src/frontend/index.js','webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true'],
-  mode: 'development',
+  entry,
+  mode: process.env.ENV,
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './src/server/public'),
     filename: 'assets/app.js',
     publicPath: '/'
+
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -39,22 +51,26 @@ module.exports = {
 
       },      
       {
-        test: /\.svg$/,
+        test: /\.(png|svg|jpg)$/,
         use: [
           {
-            loader: 'svg-url-loader',
+            'loader': 'file-loader',
             options: {
-              limit: 10000,
-            },
-          },
-        ],
-      },
+              name: 'assets/[name].[ext]'
+            }
+          }
+        ]
+      }
       
     ],
     
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    isDev ? new webpack.HotModuleReplacementPlugin() :
+    () => { },
     new MiniCssExtractPlugin({
         filename: 'assets/app.css',
       }),
