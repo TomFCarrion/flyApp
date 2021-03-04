@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-import dateLogo from '../../assets/date.svg';
 import takeoff from '../../assets/takeOff.svg';
 import landing from '../../assets/landing.svg';
 

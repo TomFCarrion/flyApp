@@ -5,4 +5,4 @@ import infoReducer from './infoReducer';
 export const rootReducer = combineReducers({
     flightsReducer,
     infoReducer,
-})
+});
