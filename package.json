@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "webpack serve --open --mode development",
+    "build": "webpack-cli --config webpack.config.js",
     "start:dev": "nodemon src/server/index"
   },
   "keywords": [],
@@ -22,6 +21,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "file-loader": "5.1.0",
+    "helmet": "^3.21.2",
     "history": "^5.0.0",
     "ignore-styles": "^5.0.1",
     "moment": "^2.29.1",
