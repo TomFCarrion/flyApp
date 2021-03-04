@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-cli --config webpack.config.js",
-    "start:dev": "nodemon src/server/index"
+    "start:dev": "nodemon src/server/index",
+    "start": "node src/server"
   },
   "keywords": [],
   "author": "",
