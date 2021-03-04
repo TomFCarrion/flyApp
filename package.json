@@ -8,7 +8,7 @@
     "build": "webpack-cli --config webpack.config.js",
     "start:dev": "nodemon src/server/index",
     "start": "node src/server",
-    "heroku-postbuild": "ng build --prod" 
+    "heroku-postbuild": "webpack-cli --config webpack.config.js" 
   },
   "keywords": [],
   "author": "",
