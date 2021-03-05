@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FETCH_FLIGHTS } from '../../actions/actionTypes';
+import errorImg from '../../assets/error.svg';
 import Result from './Result';
 import axios from 'axios';
 
 const ResultWrapper = () => {
+  const [error, setError] = useState(false);
   const data = useSelector((state) => state.flightsReducer);
   const from = useSelector((state) => state.infoReducer.from);
   const fromId = useSelector((state) => state.infoReducer.fromId);
@@ -30,13 +32,14 @@ const ResultWrapper = () => {
     return (dispatch) => {
       axios
         .request(options)
-        .then((res) =>
+        .then((res) => {
           dispatch({
             type: FETCH_FLIGHTS,
             data: res.data,
           }),
-        )
-        .then((res) => console.error(res))
+            setError(false);
+        })
+        .then(setError(false))
         .catch((error) => {
           console.error(error);
         });
@@ -64,7 +67,7 @@ const ResultWrapper = () => {
         }
       }
     }
-
+  
     console.log(parsedCarriers);
     return parsedCarriers;
   };
@@ -79,19 +82,30 @@ const ResultWrapper = () => {
         <div className="navBack"> </div>
       </Link>
 
-      <ul>
-        { parseData().map( ticket => 
-          <Result
-            key ={ ticket.id }
-            from ={ from }
-            to = { to }
-            airlineName = { ticket.name }
-            flightNumber = { ticket.id }
-            ticketPrice = { ticket.price }    
-            date = { startDate }
-          />)
-        }
-      </ul>
+      {error? (
+        <div className="card error">
+          <img src={errorImg} width="200" height="200" />
+          <div>
+            An error occurred in your search, please try again or modify the
+            data entered
+          </div>
+          <div className="error-message">{ErrorMesage}</div>
+        </div>
+      ) : (
+        <ul>
+          {parseData().map((ticket) => (
+            <Result
+              key={ticket.id}
+              from={from}
+              to={to}
+              airlineName={ticket.name}
+              flightNumber={ticket.id}
+              ticketPrice={ticket.price}
+              date={startDate}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
