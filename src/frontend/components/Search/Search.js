@@ -112,6 +112,7 @@ const Search = () => {
             dayPickerProps={{
               modifiers,
               numberOfMonths: 1,
+              disabledDays: {before: new Date()} 
             }}
             onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
           />
@@ -129,6 +130,7 @@ const Search = () => {
               preventOverflow: {
                 enabled: true,
               },
+              disabledDays: {before: new Date()} 
             }}
             popperModifiers={{
               preventOverflow: {
