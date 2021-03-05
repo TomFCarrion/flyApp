@@ -76,7 +76,7 @@ const ResultWrapper = () => {
   return (
     <div>
       <Link to="/">
-        <div className="navBack"> {'<'} </div>
+        <div className="navBack"> </div>
       </Link>
 
       <ul>
