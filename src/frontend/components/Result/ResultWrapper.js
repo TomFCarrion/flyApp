@@ -41,6 +41,7 @@ const ResultWrapper = () => {
         })
         .catch((error) => {
           setError(true);
+
         });
     };
   }
@@ -67,7 +68,6 @@ const ResultWrapper = () => {
       }
     }
   
-    console.log(parsedCarriers);
     return parsedCarriers;
   };
 
