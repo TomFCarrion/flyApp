@@ -39,9 +39,8 @@ const ResultWrapper = () => {
           }),
             setError(false);
         })
-        .then(setError(false))
         .catch((error) => {
-          console.error(error);
+          setError(true);
         });
     };
   }
@@ -82,14 +81,13 @@ const ResultWrapper = () => {
         <div className="navBack"> </div>
       </Link>
 
-      {error? (
+      {error ? (
         <div className="card error">
           <img src={errorImg} width="200" height="200" />
           <div>
             An error occurred in your search, please try again or modify the
             data entered
           </div>
-          <div className="error-message">{ErrorMesage}</div>
         </div>
       ) : (
         <ul>
