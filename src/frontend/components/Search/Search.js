@@ -89,7 +89,7 @@ const Search = () => {
             data-cy="cy-from"
           />
           <input
-            placeholder="to"
+            placeholder="To"
             type="text"
             value={to}
             onChange={(e) => handleInputChange(e.target.value, SET_TO)}

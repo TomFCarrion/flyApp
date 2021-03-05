@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+
 .title {
     font-family: 'Open Sans', sans-serif;
     color:#FFFFFF;
@@ -12,6 +13,9 @@
     width: 100%;
 }
 
+.DayPicker-wrapper {
+    font-family: 'Open Sans', sans-serif;
+}
 
 @media only screen and (min-width: 600px) {
     .searchWrapper {
