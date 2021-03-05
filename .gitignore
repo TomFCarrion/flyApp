@@ -76,3 +76,7 @@ yarn-error.log
 dist/
 
 src/server/public
+
+# cypress
+*.mp4
+cypress/videos
