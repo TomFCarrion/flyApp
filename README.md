@@ -36,14 +36,16 @@ Then run the app and Enjoy!
 
 
 To tun E2E: 
+run the app as shown before & run the follwing command on a separete tab:
 
 ```bash
  npm run cypress
 ```
 
 To tun unit-test: 
-
+```
 Work in progress
+```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
