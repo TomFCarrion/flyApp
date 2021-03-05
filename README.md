@@ -1,4 +1,5 @@
-# [![Javascript](http://img.shields.io/badge/Javascript-yellow.svg)]() [![Reacrt.js](http://img.shields.io/badge/React.js-blue.svg)]() 
+
+[![Javascript](http://img.shields.io/badge/Javascript-yellow.svg)]() [![Reacrt.js](http://img.shields.io/badge/React.js-blue.svg)]() 
 [![Redux](http://img.shields.io/badge/Redux-purple.svg)]()
 [![Express](http://img.shields.io/badge/Express-brightgreen.svg)]()
 [![Server side Render](http://img.shields.io/badge/ServerSideRender-orange.svg)]()
