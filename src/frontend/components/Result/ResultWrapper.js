@@ -19,8 +19,7 @@ const ResultWrapper = () => {
 
   const options = {
     method: 'GET',
-    url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${fromId}/${toId}/${startDate}`,
-    params: { inboundpartialdate: endDate },
+    url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${fromId}/${toId}/${startDate}/${endDate}`,
     headers: {
       'x-rapidapi-key': '08eb576b39mshaa3eb3f0249657ep1b15f7jsn598ba72db2e4',
       'x-rapidapi-host':
@@ -62,12 +61,22 @@ const ResultWrapper = () => {
               id: carriers[i].CarrierId,
               name: carriers[i].Name,
               price: quotes[j].MinPrice,
+              type: 'out'
+            });
+          } 
+          if (carriers[i].CarrierId === quotes[j].InboundLeg.CarrierIds[0]) {
+            parsedCarriers.push({
+              id: carriers[i].CarrierId,
+              name: carriers[i].Name,
+              price: quotes[j].MinPrice,
+              type: 'in'
             });
           }
-        }
+        } 
       }
     }
   
+    console.log(parsedCarriers);
     return parsedCarriers;
   };
 
@@ -94,12 +103,12 @@ const ResultWrapper = () => {
           {parseData().map((ticket) => (
             <Result
               key={ticket.id}
-              from={from}
-              to={to}
+              from={ticket.type === 'out' ? from : to}
+              to={ticket.type === 'out' ? to : from}
               airlineName={ticket.name}
               flightNumber={ticket.id}
               ticketPrice={ticket.price}
-              date={startDate}
+              date={ticket.type === 'out' ? startDate : endDate}
             />
           ))}
         </ul>
