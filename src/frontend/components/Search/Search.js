@@ -86,6 +86,7 @@ const Search = () => {
             onChange={(e) => handleInputChange(e.target.value, SET_FROM)}
             onBlur={(e) => handleBlur(e, SET_FROM_ID)}
             name="from"
+            data-cy="cy-from"
           />
           <input
             placeholder="to"
@@ -94,26 +95,32 @@ const Search = () => {
             onChange={(e) => handleInputChange(e.target.value, SET_TO)}
             onBlur={(e) => handleBlur(e, SET_TO_ID)}
             name="to"
+            data-cy="cy-to"
+
           />
         </span>
       </div>
 
-      <div className="Date">
-        <DayPickerInput
-          value={startDate}
-          placeholder="Depart"
-          formatDate={formatDate}
-          parseDate={parseDate}
-          dayPickerProps={{
-            modifiers,
-            numberOfMonths: 1,
-          }}
-          onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
-        />
+      <div className="Date">  
+        <div className="InputFrom-from">
+          <DayPickerInput
+            value={startDate}
+            id="cy-depart"
+            placeholder="Depart"
+            formatDate={formatDate}
+            parseDate={parseDate}
+            dayPickerProps={{
+              modifiers,
+              numberOfMonths: 1,
+            }}
+            onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
+          />
+        </div>
         <span className="InputFromTo-to">
           <DayPickerInput
             value={endDate}
             placeholder="Return"
+            data-cy="cy-return"
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
@@ -129,13 +136,14 @@ const Search = () => {
               },
             }}
             onDayChange={(e) => handleCalendarChange(e, SET_END_DATE)}
+
           />
         </span>
       </div>
       
 
       <Link  to="/result">
-        <span className="button-Wrapper"> <button  className="button" type="button">Get My Flight!</button></span>
+        <span className="button-Wrapper" data-cy="search-button"> <button  className="button" type="button">Get My Flight!</button></span>
       </Link>
     </div>
   );
