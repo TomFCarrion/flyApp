@@ -8,6 +8,15 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.error {
+  text-align: center;
+}
+
+.error-message {
+  padding: 1rem;
+  color: red;
+}
+
 .upper-item {
   text-align: center;
   &.airline {
