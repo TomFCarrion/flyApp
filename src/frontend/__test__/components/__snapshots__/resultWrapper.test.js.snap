@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultWrapper snapshot Check Result snapshot 1`] = `
+<div>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <div
+      className="navBack"
+    >
+       
+    </div>
+  </a>
+  <ul />
+</div>
+`;

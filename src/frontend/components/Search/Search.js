@@ -47,7 +47,7 @@ const Search = () => {
       .request(options)
       .then((res) => {
         dispatch({ type: action, data: res.data.Places[0].PlaceId }),
-        [dispatch];
+          [dispatch];
       })
       .catch((error) => {
         console.error(error);
@@ -65,7 +65,7 @@ const Search = () => {
   };
   const handleCalendarChange = (value, action) => {
     dispatch({ type: action, data: moment(value).format('YYYY-MM-DD') }),
-    [dispatch];
+      [dispatch];
   };
 
   const modifiers = { start: from, end: to };
@@ -74,18 +74,28 @@ const Search = () => {
     <div className='wrapper'>
       <div>
         <span className='icons'>
-          <img className='icon' src={takeoff} width='100' height='50' />
-          <img className='icon' src={landing} width='100' height='50' />
+          <img
+            className='icon'
+            src={takeoff}
+            width='100'
+            height='50'
+            alt='from'
+          />
+          <img
+            className='icon'
+            src={landing}
+            width='100'
+            height='50'
+            alt='to'
+          />
         </span>
-
         <span className='inputs'>
-
           <input
             placeholder='From'
             type='text'
             value={from}
-            onChange={e => handleInputChange(e.target.value, SET_FROM)}
-            onBlur={e => handleBlur(e, SET_FROM_ID)}
+            onChange={(e) => handleInputChange(e.target.value, SET_FROM)}
+            onBlur={(e) => handleBlur(e, SET_FROM_ID)}
             name='from'
             data-cy='cy-from'
           />
@@ -93,11 +103,10 @@ const Search = () => {
             placeholder='To'
             type='text'
             value={to}
-            onChange={e => handleInputChange(e.target.value, SET_TO)}
-            onBlur={e => handleBlur(e, SET_TO_ID)}
+            onChange={(e) => handleInputChange(e.target.value, SET_TO)}
+            onBlur={(e) => handleBlur(e, SET_TO_ID)}
             name='to'
             data-cy='cy-to'
-
           />
         </span>
       </div>
@@ -115,7 +124,7 @@ const Search = () => {
               numberOfMonths: 1,
               disabledDays: { before: new Date() },
             }}
-            onDayChange={e => handleCalendarChange(e, SET_START_DATE)}
+            onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
           />
         </div>
         <span className='InputFromTo-to'>
@@ -138,8 +147,7 @@ const Search = () => {
                 enabled: true,
               },
             }}
-            onDayChange={e => handleCalendarChange(e, SET_END_DATE)}
-
+            onDayChange={(e) => handleCalendarChange(e, SET_END_DATE)}
           />
         </span>
       </div>
@@ -147,7 +155,9 @@ const Search = () => {
       <Link to='/result'>
         <span className='button-Wrapper' data-cy='search-button'>
           {' '}
-          <button className='button' type='button'>Get My Flight!</button>
+          <button className='button' type='button'>
+            Get My Flight!
+          </button>
         </span>
       </Link>
     </div>

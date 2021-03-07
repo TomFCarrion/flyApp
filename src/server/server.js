@@ -15,7 +15,7 @@ import config from './config';
 
 dotenv.config();
 
-const { ENV, PORT } = process.env;
+const { PORT } = process.env;
 const app = express();
 
 if (config.env === 'development') {

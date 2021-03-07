@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search snapshot Check Search snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <div>
+    <span
+      className="icons"
+    >
+      <img
+        className="icon"
+        height="50"
+        src={[Function]}
+        width="100"
+      />
+      <img
+        className="icon"
+        height="50"
+        src={[Function]}
+        width="100"
+      />
+    </span>
+    <span
+      className="inputs"
+    >
+      <input
+        data-cy="cy-from"
+        name="from"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="From"
+        type="text"
+        value=""
+      />
+      <input
+        data-cy="cy-to"
+        name="to"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="To"
+        type="text"
+        value=""
+      />
+    </span>
+  </div>
+  <div
+    className="Date"
+  >
+    <div
+      className="InputFrom-from"
+    >
+      <div
+        className="DayPickerInput"
+      >
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          placeholder="Depart"
+          value=""
+        />
+      </div>
+    </div>
+    <span
+      className="InputFromTo-to"
+    >
+      <div
+        className="DayPickerInput"
+      >
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          placeholder="Return"
+          value=""
+        />
+      </div>
+    </span>
+  </div>
+  <a
+    href="/result"
+    onClick={[Function]}
+  >
+    <span
+      className="button-Wrapper"
+      data-cy="search-button"
+    >
+       
+      <button
+        className="button"
+        type="button"
+      >
+        Get My Flight!
+      </button>
+    </span>
+  </a>
+</div>
+`;

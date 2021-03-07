@@ -35,12 +35,12 @@ const ResultWrapper = () => {
           dispatch({
             type: FETCH_FLIGHTS,
             data: res.data,
-          }),
+          });
           setError(false);
         })
         .catch((error) => {
           setError(true);
-
+          console.log(error);
         });
     };
   }
@@ -75,8 +75,6 @@ const ResultWrapper = () => {
         }
       }
     }
-
-    console.log(parsedCarriers);
     return parsedCarriers;
   };
 
@@ -92,7 +90,7 @@ const ResultWrapper = () => {
 
       {error ? (
         <div className='card error'>
-          <img src={errorImg} width='200' height='200' />
+          <img src={errorImg} width='200' height='200' alt='There was an error in your search, try again please' />
           <div>
             An error occurred in your search, please try again or modify the
             data entered

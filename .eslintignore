@@ -1,0 +1,5 @@
+
+# Ignore built files except build/index.js
+
+src/server/public/*
+

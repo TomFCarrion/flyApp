@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result snapshot Check Result snapshot 1`] = `
+<div
+  className="Card"
+>
+  <div
+    className="upper"
+  >
+    <span
+      className="upper-item"
+    >
+      
+    </span>
+    <span
+      className="upper-item airline"
+    >
+      -
+    </span>
+    <span
+      className="upper-item"
+    >
+      
+    </span>
+  </div>
+  <div
+    className="middle"
+  >
+    <div>
+      <div>
+        Depart:
+      </div>
+      <span />
+      <div>
+        Invalid date
+      </div>
+    </div>
+    <div>
+      <div>
+        Flight number:
+      </div>
+      <div>
+        0000
+      </div>
+    </div>
+  </div>
+  <div
+    className="dot"
+  />
+  <div
+    className="dot right"
+  />
+  <div
+    className="bottom"
+  >
+    <span
+      className="price-text"
+    >
+       Ticket Price
+    </span>
+    <span />
+    <span
+      className="price"
+    >
+       
+      $ -
+    </span>
+  </div>
+</div>
+`;

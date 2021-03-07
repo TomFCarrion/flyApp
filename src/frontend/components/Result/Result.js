@@ -10,7 +10,7 @@ const Result = ({
   ticketPrice = '-',
   date = '-',
 }) => {
-  const momentDate = moment(date).format('MMM-DD');
+  const momentDate = moment(date, 'MMM-DD').format('MMM-DD');
   return (
     <div className='Card'>
       <div className='upper'>
