@@ -6,14 +6,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 require('dotenv').config();
 
-
 const isDev = (process.env.ENV === 'development');
 const entry = ['./src/frontend/index.js'];
 
 if (isDev) {
   entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true');
 }
-
 
 module.exports = {
   entry,
@@ -37,8 +35,8 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(s*)css$/,
@@ -47,8 +45,8 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
 
       },
       {
@@ -57,22 +55,22 @@ module.exports = {
           {
             'loader': 'file-loader',
             options: {
-              name: 'assets/[name].[ext]'
-            }
-          }
-        ]
-      }
-    ]
+              name: 'assets/[name].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
   devServer: {
     historyApiFallback: true,
   },
-  
+
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() :
       () => { },
     isDev ? () => {} :
-       new CompressionWebpackPlugin({
+      new CompressionWebpackPlugin({
         test: /\.js$|\.css$/,
         filename: '[path].gz',
       }),

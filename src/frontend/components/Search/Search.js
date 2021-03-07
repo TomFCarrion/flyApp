@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+import { formatDate, parseDate } from 'react-day-picker/moment';
 import takeoff from '../../assets/takeOff.svg';
 import landing from '../../assets/landing.svg';
 
@@ -16,16 +17,16 @@ import {
   SET_START_DATE,
   SET_END_DATE,
 } from '../../actions/actionTypes';
-import { formatDate, parseDate } from 'react-day-picker/moment';
 
 import 'react-day-picker/lib/style.css';
+
 require('./styles/search.scss');
 
 const Search = () => {
-  const from = useSelector((state) => state.infoReducer.from);
-  const to = useSelector((state) => state.infoReducer.to);
-  const startDate = useSelector((state) => state.infoReducer.startDate);
-  const endDate = useSelector((state) => state.infoReducer.endDate);
+  const from = useSelector(state => state.infoReducer.from);
+  const to = useSelector(state => state.infoReducer.to);
+  const startDate = useSelector(state => state.infoReducer.startDate);
+  const endDate = useSelector(state => state.infoReducer.endDate);
 
   const dispatch = useDispatch();
 
@@ -46,9 +47,9 @@ const Search = () => {
       .request(options)
       .then((res) => {
         dispatch({ type: action, data: res.data.Places[0].PlaceId }),
-          [dispatch];
+        [dispatch];
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.error(error);
       });
   };
@@ -64,64 +65,64 @@ const Search = () => {
   };
   const handleCalendarChange = (value, action) => {
     dispatch({ type: action, data: moment(value).format('YYYY-MM-DD') }),
-      [dispatch];
+    [dispatch];
   };
 
   const modifiers = { start: from, end: to };
 
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <div>
-        <span className="icons">
-          <img  className="icon" src={takeoff} width="100" height="50" />
-          <img  className="icon"  src={landing} width="100" height="50" />
+        <span className='icons'>
+          <img className='icon' src={takeoff} width='100' height='50' />
+          <img className='icon' src={landing} width='100' height='50' />
         </span>
 
-        <span className="inputs">
-          
+        <span className='inputs'>
+
           <input
-            placeholder="From"
-            type="text"
+            placeholder='From'
+            type='text'
             value={from}
-            onChange={(e) => handleInputChange(e.target.value, SET_FROM)}
-            onBlur={(e) => handleBlur(e, SET_FROM_ID)}
-            name="from"
-            data-cy="cy-from"
+            onChange={e => handleInputChange(e.target.value, SET_FROM)}
+            onBlur={e => handleBlur(e, SET_FROM_ID)}
+            name='from'
+            data-cy='cy-from'
           />
           <input
-            placeholder="To"
-            type="text"
+            placeholder='To'
+            type='text'
             value={to}
-            onChange={(e) => handleInputChange(e.target.value, SET_TO)}
-            onBlur={(e) => handleBlur(e, SET_TO_ID)}
-            name="to"
-            data-cy="cy-to"
+            onChange={e => handleInputChange(e.target.value, SET_TO)}
+            onBlur={e => handleBlur(e, SET_TO_ID)}
+            name='to'
+            data-cy='cy-to'
 
           />
         </span>
       </div>
 
-      <div className="Date">  
-        <div className="InputFrom-from">
+      <div className='Date'>
+        <div className='InputFrom-from'>
           <DayPickerInput
             value={startDate}
-            id="cy-depart"
-            placeholder="Depart"
+            id='cy-depart'
+            placeholder='Depart'
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
               modifiers,
               numberOfMonths: 1,
-              disabledDays: {before: new Date()} 
+              disabledDays: { before: new Date() },
             }}
-            onDayChange={(e) => handleCalendarChange(e, SET_START_DATE)}
+            onDayChange={e => handleCalendarChange(e, SET_START_DATE)}
           />
         </div>
-        <span className="InputFromTo-to">
+        <span className='InputFromTo-to'>
           <DayPickerInput
             value={endDate}
-            placeholder="Return"
-            data-cy="cy-return"
+            placeholder='Return'
+            data-cy='cy-return'
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
@@ -130,22 +131,24 @@ const Search = () => {
               preventOverflow: {
                 enabled: true,
               },
-              disabledDays: {before: new Date()} 
+              disabledDays: { before: new Date() },
             }}
             popperModifiers={{
               preventOverflow: {
                 enabled: true,
               },
             }}
-            onDayChange={(e) => handleCalendarChange(e, SET_END_DATE)}
+            onDayChange={e => handleCalendarChange(e, SET_END_DATE)}
 
           />
         </span>
       </div>
-      
 
-      <Link  to="/result">
-        <span className="button-Wrapper" data-cy="search-button"> <button  className="button" type="button">Get My Flight!</button></span>
+      <Link to='/result'>
+        <span className='button-Wrapper' data-cy='search-button'>
+          {' '}
+          <button className='button' type='button'>Get My Flight!</button>
+        </span>
       </Link>
     </div>
   );

@@ -1,11 +1,10 @@
 import React from 'react';
-import SearchWrapper from './Search/SearchWrapper'
-import './appWrapper.scss'
-
+import SearchWrapper from './Search/SearchWrapper';
+import './appWrapper.scss';
 
 const AppWrapper = () => (
 
-     <SearchWrapper/>
+  <SearchWrapper />
 );
 
 export default AppWrapper;

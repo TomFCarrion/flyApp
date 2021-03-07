@@ -12,30 +12,33 @@ const Result = ({
 }) => {
   const momentDate = moment(date).format('MMM-DD');
   return (
-    <div className="Card">
-      <div className="upper">
-        <span className="upper-item">{from}</span>
-        <span className="upper-item airline">{airlineName}</span>
-        <span className="upper-item">{to}</span>
+    <div className='Card'>
+      <div className='upper'>
+        <span className='upper-item'>{from}</span>
+        <span className='upper-item airline'>{airlineName}</span>
+        <span className='upper-item'>{to}</span>
       </div>
-      <div className="middle">
+      <div className='middle'>
         <div>
           <div>Depart:</div>
-          <span>{''}</span>
+          <span />
           <div>{momentDate}</div>
         </div>
         <div>
-           <div>Flight number:</div>
-            <div>{flightNumber}</div>
+          <div>Flight number:</div>
+          <div>{flightNumber}</div>
         </div>
-        
+
       </div>
-      <div className="dot"></div>
-      <div className="dot right"></div>
-      <div className="bottom">
-        <span className="price-text"> Ticket Price</span>
-        <span>{''}</span>
-        <span className="price"> {`$ ${ticketPrice}`}</span>
+      <div className='dot' />
+      <div className='dot right' />
+      <div className='bottom'>
+        <span className='price-text'> Ticket Price</span>
+        <span />
+        <span className='price'>
+          {' '}
+          {`$ ${ticketPrice}`}
+        </span>
       </div>
     </div>
   );
