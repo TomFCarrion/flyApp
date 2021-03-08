@@ -4,6 +4,7 @@
 [![Express](http://img.shields.io/badge/Express-brightgreen.svg)]()
 [![Server side Render](http://img.shields.io/badge/ServerSideRender-orange.svg)]()
 [![E2E](http://img.shields.io/badge/E2E-green.svg)]()
+[![Unit Test](http://img.shields.io/badge/UnitTest-blue.svg)]()
 
 # Welcome to flyApp
 
@@ -44,7 +45,7 @@ run the app as shown before & run the follwing command on a separete tab:
 
 To tun unit-test: 
 ```
-Work in progress
+npm run test
 ```
 
 ## License
