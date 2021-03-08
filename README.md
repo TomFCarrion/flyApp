@@ -24,6 +24,8 @@ npm install
 
 ## Usage
 
+NODE VERSION : 10.23.1
+
 First, run the build process: 
 
 ```bash
